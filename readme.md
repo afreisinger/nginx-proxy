@@ -2,6 +2,12 @@
 
 nginx-proxy sets up a container running nginx and docker-gen. docker-gen generates reverse proxy configs for nginx and reloads nginx when containers are started and stopped.
 
+clone
+```
+git clone --recursive https://github.com/afreisinger/nginx-proxy.git
+```
+
+run
 ```
 $ docker compose up -d
 $ echo "127.0.0.1     test.local whoami.local" >> /etc/hosts
