@@ -1,0 +1,37 @@
+nginx-proxy:
+  image: jwilder/nginx-proxy
+  container_name: nginx-proxy
+  restart: always
+  ports:
+   #- "80:80" already in use
+    - "8080:80"
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+
+www-afreisinger:
+  image: nginx
+  container_name: www-afreisinger
+  restart: always
+  expose:
+    - "80"
+  volumes:
+    - ./www-afreisinger/html:/usr/share/nginx/html:ro
+  environment:
+    - VIRTUAL_HOST=g1130.synology.me,adrian.freisinger.com.ar
+
+www-test:
+  image: nginx
+  container_name: www-test
+  restart: always
+  expose:
+    - "80"
+  volumes:
+    - ./www-test/html:/usr/share/nginx/html:ro
+  environment:
+    - VIRTUAL_HOST=test.local
+  
+whoami:
+  image: jwilder/whoami
+  container_name: whoami
+  environment:
+    - VIRTUAL_HOST=whoami.local
