@@ -1,0 +1,3 @@
+[submodule "www-afreisinger/html"]
+	path = www-afreisinger/html
+	url = https://github.com/afreisinger/html.git
